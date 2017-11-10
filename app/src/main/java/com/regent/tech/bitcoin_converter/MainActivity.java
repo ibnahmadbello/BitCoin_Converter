@@ -21,16 +21,19 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton floatingActionButton;
+    private AddDialogBox addDialogBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                addDialogBox.show(getSupportFragmentManager(), "Card to be Added");
                 Toast.makeText(MainActivity.this, "Adding Card", Toast.LENGTH_SHORT).show();
             }
         });

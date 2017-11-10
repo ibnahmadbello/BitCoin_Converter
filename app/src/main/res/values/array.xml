@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cryptoCurrencies">
+        <item>BTC</item>
+        <item>ETH</item>
+    </string-array>
+
+    <string-array name="otherCurrencies">
+        <item>NGN</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>AUD</item>
+        <item>CHF</item>
+        <item>JPY</item>
+        <item>NZD</item>
+        <item>RSD</item>
+        <item>SEK</item>
+        <item>ZAR</item>
+        <item>GBP</item>
+        <item>RUB</item>
+        <item>JMD</item>
+        <item>INR</item>
+        <item>HKD</item>
+        <item>EGP</item>
+        <item>CNY</item>
+        <item>CAD</item>
+        <item>BRL</item>
+        <item>BND</item>
+    </string-array>
+
+    <string-array name="cryptoCurrenciesText">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+    </string-array>
+
+    <string-array name="otherCurrenciesText">
+        <item>Naira</item>
+        <item>Dollar</item>
+        <item>Euro</item>
+        <item>Australian Dollar</item>
+        <item>Swiss Franc</item>
+        <item>Japanese Yen</item>
+        <item>New Zealand Dollar</item>
+        <item>Serbian Dinar</item>
+        <item>Swedish Krona</item>
+        <item>South African Rand</item>
+        <item>British Pound</item>
+        <item>Russian Ruble</item>
+        <item>Jamaican Dollar</item>
+        <item>Indian Rupee</item>
+        <item>Hong Kong Dollar</item>
+        <item>Egyptian Pound</item>
+        <item>Chinese Yuan</item>
+        <item>Canadian Dollar</item>
+        <item>Brazil Real</item>
+        <item>Brunei Dollar</item>
+    </string-array>
+</resources>
