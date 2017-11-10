@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -62,7 +61,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
             otherSymbol.setText(card.getOtherSymbol());
             cryptoText.setText(card.getCryptoText());
             otherText.setText(card.getOtherText());
-            exchangeView.setText(card.getExchangeRate());
+            exchangeView.setText(String.valueOf(card.getExchangeRate()));
         }
     }
 }
