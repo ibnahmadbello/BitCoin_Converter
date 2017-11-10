@@ -8,7 +8,7 @@
     <string name="bitcoin">BITCOIN</string>
     <string name="current_exchange_rate">Current Exchange Rate</string>
     <string name="exchanged_value">NGN 0.0</string>
-    <string name="rate_to_convert">Enter the amount to convert</string>
+    <string name="enter_rate_to_convert">Enter the amount to convert</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="failed_to_retrieve">Failed to retrieve rate</string>
