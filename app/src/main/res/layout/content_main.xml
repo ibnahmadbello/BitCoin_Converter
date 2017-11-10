@@ -13,7 +13,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/card_list"
+            android:id="@+id/recycler_view"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             tools:listitem="@layout/card_list_item"/>
     </android.support.v4.widget.SwipeRefreshLayout>
