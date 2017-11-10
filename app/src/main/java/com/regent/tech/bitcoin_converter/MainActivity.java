@@ -22,25 +22,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AddDialogBox.Callback {
 
     private FloatingActionButton floatingActionButton;
     private AddDialogBox addDialogBox;
     private RecyclerView mRecyclerView;
     private CardAdapter adapter;
     private List<Card> card;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        addDialogBox = new AddDialogBox();
+        presenter = new MainPresenter(this);
         card = new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CardAdapter();
-        mRecyclerView.setAdapter();
+        adapter = new CardAdapter(card);
+        mRecyclerView.setAdapter(adapter);
         floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
