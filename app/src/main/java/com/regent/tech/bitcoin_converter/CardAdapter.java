@@ -1,6 +1,8 @@
 package com.regent.tech.bitcoin_converter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -40,7 +42,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
         cardList.add(card);
     }
 
-    class CardHolder extends RecyclerView.ViewHolder{
+    class CardHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView cryptoSymbol;
         private TextView otherSymbol;
         private TextView cryptoText;
@@ -62,6 +64,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
             cryptoText.setText(card.getCryptoText());
             otherText.setText(card.getOtherText());
             exchangeView.setText(String.valueOf(card.getExchangeRate()));
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

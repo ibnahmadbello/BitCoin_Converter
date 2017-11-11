@@ -50,7 +50,6 @@ public class AddDialogBox extends DialogFragment {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        mainActivity.showProgressBar();
                         callback.addCard(card);
 
                     }
