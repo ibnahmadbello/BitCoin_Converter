@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
 
         addDialogBox = new AddDialogBox();
         presenter = new MainPresenter(this);
-        card = new ArrayList<>();
+        card = presenter.getAllCards();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CardAdapter(card);

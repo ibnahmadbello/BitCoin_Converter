@@ -13,6 +13,6 @@ interface MainService {
     @GET("price")
     Call<ResponseBody> exchangeRate(
             @Query("fsym") String crypto,
-            @Query("tsysm") String other
+            @Query("tsyms") String other
     );
 }

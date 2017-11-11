@@ -46,6 +46,7 @@ class MainPresenter {
                                            @NonNull Response<ResponseBody> response) {
                         try{
                             JSONObject object = new JSONObject(response.body().string());
+                            Log.d(TAG, "JSON response = " + object);
                             double rate = object.getDouble(card.getOtherSymbol());
                             Log.d(TAG, "Rate received - " + rate);
                             card.setExchangeRate(rate);
@@ -60,7 +61,7 @@ class MainPresenter {
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                        Log.d(TAG, "Failed to fetch with error", t);
                     }
                 });
     }

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by root on 11/10/17.
@@ -48,12 +49,6 @@ public class AddDialogBox extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         callback.addCard(card);
-                    }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
 
@@ -96,7 +91,7 @@ public class AddDialogBox extends DialogFragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent){
-
+                Toast.makeText(getActivity(), "Nothing is selected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -178,7 +173,7 @@ public class AddDialogBox extends DialogFragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent){
-
+                Toast.makeText(getActivity(), "Nothing is selected", Toast.LENGTH_SHORT).show();
             }
         });
 

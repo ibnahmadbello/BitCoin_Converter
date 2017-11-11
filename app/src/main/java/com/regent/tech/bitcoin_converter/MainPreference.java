@@ -14,7 +14,7 @@ import java.util.List;
 
 class MainPreference {
     private SharedPreferences preferences;
-    private static final String EXCHANGE_CARD = "card for exchange";
+    private static final String EXCHANGE_CARD = "card_for_exchange";
     private static final String CARD_SEPERATOR = "&&&";
     MainPreference(Context context){
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
