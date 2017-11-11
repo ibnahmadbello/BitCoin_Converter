@@ -19,36 +19,35 @@ import android.widget.TextView;
 
 public class AddDialogBox extends DialogFragment {
 
+    interface Callback {
+        void addCard(Card card);
+    }
+
     private Spinner cryptoSpinner;
     private Spinner otherCurrenciesSpinner;
     private TextView cryptoTextView;
     private TextView otherCurrenciesTextView;
     private String[] cryptoText;
     private String[] otherCurrencyText;
+    private Callback callback;
+    private Card card = new Card();
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
 
-        cryptoSpinner = (Spinner) getActivity().findViewById(R.id.cryptoDropDown);
-        otherCurrenciesSpinner = (Spinner) getActivity().findViewById(R.id.otherCurrencyDropDown);
-        cryptoTextView = (TextView) getActivity().findViewById(R.id.cryptoDropDownText);
-        otherCurrenciesTextView = (TextView) getActivity().findViewById(R.id.otherCurrencyDropDownText);
-        cryptoText = new String[R.array.cryptoCurrenciesText];
-        otherCurrencyText = new String[R.array.otherCurrenciesText];
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         //Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        setUpSpinners();
+        View dialogView = inflater.inflate(R.layout.add_card, null);
+        callback = (Callback) getActivity();
         //Inflate and set the layout for the dialog
-        builder.setView(inflater.inflate(R.layout.add_card, null))
+        builder.setView(dialogView)
                 .setTitle("Adding a new Card")
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        callback.addCard(card);
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -58,8 +57,18 @@ public class AddDialogBox extends DialogFragment {
                     }
                 });
 
+        AlertDialog dialog = builder.create();
         //Create the AlertDialog object and return it
-        return builder.create();
+        cryptoSpinner = (Spinner) dialogView.findViewById(R.id.cryptoDropDown);
+        otherCurrenciesSpinner = (Spinner) dialogView.findViewById(R.id.otherCurrencyDropDown);
+        cryptoTextView = (TextView) dialogView.findViewById(R.id.cryptoDropDownText);
+        otherCurrenciesTextView = (TextView) dialogView.findViewById(R.id.otherCurrencyDropDownText);
+        cryptoText = getResources().getStringArray(R.array.cryptoCurrenciesText);
+        otherCurrencyText = getResources().getStringArray(R.array.otherCurrenciesText);
+
+        setUpSpinners();
+
+        return dialog;
     }
 
     private void setUpSpinners(){
@@ -67,9 +76,9 @@ public class AddDialogBox extends DialogFragment {
                 R.array.cryptoCurrencies, android.R.layout.simple_spinner_item);
         cryptoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cryptoSpinner.setAdapter(cryptoAdapter);
-        cryptoSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cryptoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
                         cryptoTextView.setText(cryptoText[0]);
@@ -78,6 +87,16 @@ public class AddDialogBox extends DialogFragment {
                         cryptoTextView.setText(cryptoText[1]);
                         break;
                 }
+
+                String cryptoSymbol = cryptoSpinner.getSelectedItem().toString();
+                String cryptoText = cryptoTextView.getText().toString();
+                card.setCryptoSymbol(cryptoSymbol);
+                card.setCryptoText(cryptoText);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent){
+
             }
         });
 
@@ -85,9 +104,9 @@ public class AddDialogBox extends DialogFragment {
                 R.array.otherCurrencies, android.R.layout.simple_spinner_item);
         otherCurrenciesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         otherCurrenciesSpinner.setAdapter(otherCurrenciesAdapter);
-        otherCurrenciesSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        otherCurrenciesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
                         otherCurrenciesTextView.setText(otherCurrencyText[0]);
@@ -150,6 +169,16 @@ public class AddDialogBox extends DialogFragment {
                         otherCurrenciesTextView.setText(otherCurrencyText[19]);
                         break;
                 }
+
+                String otherSymbol = otherCurrenciesSpinner.getSelectedItem().toString();
+                String otherText = otherCurrenciesTextView.getText().toString();
+                card.setOtherSymbol(otherSymbol);
+                card.setOtherText(otherText);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent){
+
             }
         });
 
