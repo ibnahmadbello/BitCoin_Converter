@@ -48,9 +48,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
         private TextView cryptoText;
         private TextView otherText;
         private TextView exchangeView;
+        private MainActivity mainActivity;
         CardHolder(View itemView){
             super(itemView);
 
+            mainActivity = new MainActivity();
             cryptoSymbol = (TextView) itemView.findViewById(R.id.cryptoCurrency);
             otherSymbol = (TextView) itemView.findViewById(R.id.otherCurrency);
             cryptoText = (TextView) itemView.findViewById(R.id.textCryptoCurrency);

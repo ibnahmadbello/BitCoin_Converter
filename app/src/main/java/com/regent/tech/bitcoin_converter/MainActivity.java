@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
     private List<Card> card;
     private MainPresenter presenter;
     private ProgressBar progressBar;
+    public static String EXTRA = "User_Extra";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
             }
         });
     }
+
 
     @Override
     public void addCard(Card card){
