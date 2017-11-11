@@ -8,6 +8,8 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by root on 11/11/17.
@@ -16,6 +18,9 @@ import android.view.View;
 public class ConversionDialogBox extends DialogFragment {
 
     private MainActivity mainActivity;
+    private TextView cryptoCurrencyText;
+    private TextView otherCurrencyText;
+    private EditText amountConvert;
 
     @NonNull
     @Override
@@ -34,6 +39,8 @@ public class ConversionDialogBox extends DialogFragment {
                     }
                 });
         AlertDialog dialog =  builder.create();
+        cryptoCurrencyText = (TextView) dialogView.findViewById(R.id.convert_from);
+        otherCurrencyText = (TextView) dialogView.findViewById(R.id.convert_to);
 
         return dialog;
 
