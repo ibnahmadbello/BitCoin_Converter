@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
     private RecyclerView mRecyclerView;
     private CardAdapter adapter;
     private List<Card> card;
-    private MainPresenter presenter;
+//    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
         setContentView(R.layout.activity_main);
 
         addDialogBox = new AddDialogBox();
-        presenter = new MainPresenter(this);
+//        presenter = new MainPresenter(this);
         card = new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
                 Toast.makeText(MainActivity.this, "Adding Card", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void addCard(Card card){
+
     }
 
 }
