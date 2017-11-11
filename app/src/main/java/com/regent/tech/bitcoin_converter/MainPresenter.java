@@ -6,5 +6,6 @@ package com.regent.tech.bitcoin_converter;
 
 class MainPresenter {
     private MainActivity activity;
+    private MainPreference preference;
 
 }
