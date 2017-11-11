@@ -30,12 +30,14 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
     private CardAdapter adapter;
     private List<Card> card;
     private MainPresenter presenter;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         addDialogBox = new AddDialogBox();
         presenter = new MainPresenter(this);
         card = presenter.getAllCards();
@@ -63,5 +65,11 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
         adapter.addCardToList(card);
         adapter.notifyItemInserted(position);
     }
+
+    public void showProgressBar(){
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar() {progressBar.setVisibility(View.GONE);}
 
 }
