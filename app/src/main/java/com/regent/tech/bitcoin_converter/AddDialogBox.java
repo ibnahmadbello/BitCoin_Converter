@@ -24,6 +24,7 @@ public class AddDialogBox extends DialogFragment {
         void addCard(Card card);
     }
 
+    private MainActivity mainActivity;
     private Spinner cryptoSpinner;
     private Spinner otherCurrenciesSpinner;
     private TextView cryptoTextView;
@@ -37,6 +38,7 @@ public class AddDialogBox extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
 
+        mainActivity = new MainActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         //Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -48,7 +50,9 @@ public class AddDialogBox extends DialogFragment {
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+//                        mainActivity.showProgressBar();
                         callback.addCard(card);
+
                     }
                 });
 

@@ -38,12 +38,16 @@ class MainPresenter {
     }
 
     void updateCardRate(final Card card){
+        activity.showProgressBar();
+        Log.d(TAG, "Work");
         MainService service = getRetroInstance().create(MainService.class);
+        Log.d(TAG, "Test");
         service.exchangeRate(card.getCryptoSymbol(), card.getOtherSymbol())
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(@NonNull Call<ResponseBody> call,
                                            @NonNull Response<ResponseBody> response) {
+                        activity.hideProgressBar();
                         try{
                             JSONObject object = new JSONObject(response.body().string());
                             Log.d(TAG, "JSON response = " + object);
