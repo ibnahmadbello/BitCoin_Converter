@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.regent.tech.bitcoin_converter">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <supports-screens android:xlargeScreens="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"/>
 
     <application
         android:allowBackup="true"
