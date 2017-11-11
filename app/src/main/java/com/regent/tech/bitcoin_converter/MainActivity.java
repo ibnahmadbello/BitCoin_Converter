@@ -55,7 +55,13 @@ public class MainActivity extends AppCompatActivity implements AddDialogBox.Call
 
     @Override
     public void addCard(Card card){
+        presenter.updateCardRate(card);
+    }
 
+    void addCardToView(Card card){
+        int position = adapter.getItemCount();
+        adapter.addCardToList(card);
+        adapter.notifyItemInserted(position);
     }
 
 }
